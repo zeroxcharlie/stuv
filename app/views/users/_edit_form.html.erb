@@ -1,0 +1,39 @@
+<%= form_for(user) do |f| %>
+  
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label "Contraseña", for: :password %>
+    <%= f.password_field :password, requred: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">  
+    <%= f.label "Repita contraseña", for: :password_confirmation %>
+    <%= f.password_field :password_confirmation, requred: true, class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label "Teléfono celular", for: :telefono %>
+    <%= f.number_field :telefono, required: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Tu fotografía", for: :foto %>
+    <%= f.file_field :foto, required: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Enviar", class: "btn btn-block text-light form-control", style: "background: #958419;" %>
+  </div>
+<% end %>

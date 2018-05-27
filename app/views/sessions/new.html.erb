@@ -1,0 +1,10 @@
+<% provide(:title, "Iniciar sesión") %>
+<div class="row ">
+  <div class="col-sm-12">
+    <h1 class="text-center">Iniciar sesión</h1>
+  </div>
+  <div class="col-sm-12 col-md-4 mx-auto">
+    <%= render "sessions/form" %>
+    <a href="<%= new_user_path %>" class="btn btn-block text-light" style="background: #154D23;">Crear cuenta</a>
+  </div>
+</div>

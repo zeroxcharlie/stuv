@@ -1,0 +1,25 @@
+<%= form_for(viaje) do |f| %>
+
+  <div class="form-group">
+    <%= f.label "Lugar de partida", for: :place_id %>
+    <%= f.collection_select(:place_id, Place.all, :id, :name, {}, { class: 'form-control', required: true }) %>
+    <span class="form-text text-muted">Desde donde partirás, con esto los demás usuarios podrán consultar tu viaje</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Descripción", for: :description %>
+    <%= f.text_area :description, required: true, class: "form-control", placeholder: "p.ej. Terminal, Tollocan, Centro, Fac. Medicina, Comonfort, etc." %>
+    <span class="form-text text-muted">Por que lugares o calles vas a pasar.</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Hora de partida", for: :time_limit %>
+    <%= f.time_field :time_limit, required: true, class: "form-control" %>
+    <span class="form-text text-muted">Hora límite para partir.</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Enviar", class: "btn btn-block text-light form-control", style: "background: #958419;" %>
+  </div>
+
+<% end %>

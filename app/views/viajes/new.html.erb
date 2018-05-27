@@ -1,0 +1,8 @@
+<% provide(:title, "Agendar viaje") %>
+<% if !current_user.vehicle %>
+  <p class="lead text-center">No puedes agendar un viaje si no tienes un vehículo registrado</p>
+  <a href="<%= new_vehicle_path %>" class="btn btn-success btn-block">Añadir vehículo</a>
+<% else %>
+  <h1 class="text-center">Agendar nuevo viaje</h1>
+  <%= render 'viajes/form', viaje: Viaje.new %>
+<% end %>

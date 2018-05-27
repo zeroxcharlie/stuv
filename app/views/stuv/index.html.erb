@@ -1,0 +1,17 @@
+<% provide(:title, "Inicio") %>
+<div class="row ">
+  <div class="col-sm-12">
+    <div class="jumbotron-fluid text-center">
+      <h1 class="display-2">STUV</h1>
+      <p class="lead">Sistema de Transporte Universitario</p>
+    </div>
+    <div class="col-sm-12 col-md-4 mx-auto">
+      <% if logged_in? %>
+        <%= render "stuv/user_index" %>
+      <% else %>
+        <%= render "sessions/form" %>
+        <a href="<%= new_user_path %>" class="btn btn-block text-light" style="background: #154D23;">Crear cuenta</a>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<% provide(:title, "Nuevo vehículo") %>
+<div class="row ">
+  <div class="col-sm-12">
+    <h1 class="text-center">Registro de vehículo</h1>
+    </div>
+    <div class="col-sm-12 col-md-4 mx-auto">
+      <%= render 'vehicles/form', vehicle: Vehicle.new %>
+    </div>
+  </div>
+</div>

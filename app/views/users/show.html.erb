@@ -1,0 +1,23 @@
+<% provide(:title, "Mi perfil") %>
+
+<div class="row">
+  <div class="col-sm-12 ">
+    <ul id="clothing-nav" class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" href="#perfil" id="perfil-tab" role="tab" data-toggle="tab" aria-controls="perfil" aria-expanded="true">Mi perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#vehicles" id="vehicles-tab" role="tab" data-toggle="tab" aria-controls="vehicles" aria-expanded="true">Mi vehículo</a>
+      </li>
+    </ul>
+    <!-- Content Panel -->
+    <div id="clothing-nav-content" class="tab-content">
+      <div role="tabpanel" class="tab-pane fade show active" id="perfil" aria-labelledby="perfil-tab">
+        <%= render 'users/perfil', user: current_user %>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="vehicles" aria-labelledby="vehicles-tab">
+        <%= render 'users/vehicles', user: current_user %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<% if current_user.viaje %>
+  <p class="lead text-center">Has publicado un viaje</p>
+  <div class="text-center">
+    <div class="display-4 text-center"><%= current_user.viaje.time_limit.strftime('%I:%M %p') %></div><br>
+    <div class="font-weight-bold">Lugar de partida:</div> <%= current_user.viaje.place.name %><br>
+    <div class="font-weight-bold">Descripción:</div> <%= current_user.viaje.description %>
+  </div>
+  <%= link_to "Cancelar", viaje_path(current_user.viaje), method: :delete, class: "btn btn-block btn-danger" %>
+<% else %>
+  <a href="<%= viajes_path %>" class="btn btn-block btn-lg text-light" style="background: #958419;">Pedir viaje</a>
+  <a href="<%= new_viaje_path %>" class="btn btn-block btn-lg text-light" style="background: #154D23;">Ofrecer viaje</a>
+<% end %>

@@ -1,0 +1,2 @@
+module StuvHelper
+end

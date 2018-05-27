@@ -1,0 +1,48 @@
+<% if !params[:p] %>
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="text-center">Solicitar viaje</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <form action="/viajes" method="get">
+      <div class="form-group">
+        <label>Selecciona el lugar de partida</label>
+        <select name="p" id="p" class="form-control" required>
+          <% Place.all.find_each do |p| %>
+            <option value="<%= p.id %>"><%= p.name %></option>
+          <% end %>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Buscar", class="btn text-light btn-block form-control" style="background: #958419;">
+      </div>
+    </form>
+  </div>
+</div>
+<% elsif !@viajes.empty? %>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">Viajes disponibles</h1>
+      <div class="table-responsive-sm">
+        <table class="table table-sm table-bordered table-striped table-hover text-center">
+          <thead class="thead-dark">
+            <th>Hora de salida</th>
+            <th>Descripción</th>
+            <th>Opciones</th>
+          </thead>
+          <tbody>
+            <% @viajes.each do |v| %>
+              <td><%= v.time_limit.strftime('%I:%M %p') %></td>
+              <td><%= v.description %></td>
+              <td><a href="<%= viaje_path(v) %>">Ver</a></td>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% else %>
+<h3 class="text-center">No hay ningun viaje disponible</h3>
+<p class="lead text-center">Inténtalo más tarde.</p>
+<% end %>

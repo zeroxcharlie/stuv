@@ -1,0 +1,14 @@
+<% if user.rutas.empty? %>
+  <p class="lead text-center">Aun no has agregado ninguna ruta</p>
+<% elsif !user.vehicle %>
+  <p class="lead text-center">No puedes gestionar tus rutas si no tienes un vehículo registrado</p>
+  <a href="<%= new_vehicle_path %>" class="btn btn-success btn-block">Añadir vehículo</a>
+<% else %>
+  <p class="display-4 text-center">Mis rutas</p>
+  <div>
+    <% user.rutas.find_each do |ruta| %>
+      <%= render "rutas/ruta", ruta: ruta %>
+    <% end %>
+  </div>
+  <a href="<%= new_ruta_path %>" class="btn btn-success btn-block">Añadir ruta</a>
+<% end %>

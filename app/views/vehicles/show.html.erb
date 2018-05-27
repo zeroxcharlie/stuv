@@ -1,0 +1,16 @@
+<% provide(:title, "Mi vehículo") %>
+<div class="row mx-auto">
+  <div class="col-sm-12">
+    <div class="text-center">
+      <h1 class="display-4">Mi Vehículo</h1>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <img src="<%= @vehicle.foto %>" class="img-thumbnail mx-auto d-block" style="width: 300px; height: 300px;">
+    <p class="lead text-center">
+      Modelo: <%= @vehicle.model %><br>
+      Color: <%= @vehicle.color %>
+    </p>
+    <%= link_to "Eliminar vehículo", vehicle_path(@vehicle), method: :delete, class: "btn btn-block btn-danger" %>
+  </div>
+</div>

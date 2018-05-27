@@ -1,0 +1,9 @@
+<img src="<%= user.foto %>" class="img-fluid img-thumbnail rounded-circle mx-auto d-block" style="max-width: 100px; height: auto;">
+<div class="lead text-center">
+  <p><%= user.nombre %> <%= user.apellido_paterno %> <%= user.apellido_materno %></p>
+  <p>Contacto: <%= user.telefono %></p>
+  <% if current_user.id == user.id %>
+    <a href="<%= edit_user_path(user) %>" class="btn btn-warning btn-block">Editar</a>
+  <% end %>
+</div>
+
